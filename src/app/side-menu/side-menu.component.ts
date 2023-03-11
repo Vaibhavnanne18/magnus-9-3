@@ -17,6 +17,8 @@ export class SideMenuComponent implements OnInit {
   set: boolean = true;
   myId :any;
   email:any;
+  logourl:string='../../assets/img/logonew.png';
+  profileurl:string='http://cdn.onlinewebfonts.com/svg/img_452489.png';
   constructor(public auth:AuthService,public firebaseAuth:AngularFireAuth,public router:Router) { 
 
     firebaseAuth.user.subscribe(user=> {

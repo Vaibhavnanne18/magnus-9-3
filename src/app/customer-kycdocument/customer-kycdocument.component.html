@@ -149,11 +149,16 @@
                                             <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                                                 <div
                                                     class="tab-pane fade in animated zoomInDown shadow-reset custom-inbox-message">
-                                                    <input type="file" (change)="uploadFile($event)" *ngIf="doExist==false">
 
 
 
-                                                    <div class="page-body registration-result-page"  *ngIf="doExist==true">
+
+
+
+
+
+
+                                                    <div class="page-body registration-result-page">
 
                                                         <div class="info" style="margin-top: 10px;">
                                                             <b style="color:red;font-weight:bold"> * N.B.: </b> File
@@ -172,10 +177,17 @@
                                                                             value="fsYm99sRhSjlak_TEZaLjmiHYlP6zqFfyEPurDeGol1lR-ypZfgSPbUVGj-SegQwmGasJ3p1n0IYX9Q6RYQ5L6mCUsP5XNnKKthuEKJvZCs1">
                                                                         <div class="row ">
                                                                             <div class="inputs" id="custKycDoc">
-                                                                                <b><label id="custKycDoc">Aadhaar Card
-                                                                                        Front</label></b>
+                                                                                <b><label
+                                                                                        id="custKycDoc">Profile</label></b>
                                                                             </div>
-                                                                            <div class="inputs" id="custKycDoc">
+                                                                            <div class="inputs" *ngIf="!profile_exist">
+
+                                                                                <input type="file"
+                                                                                    (change)="uploadProfile($event)"
+                                                                                    placeholder="Upload File">
+                                                                            </div>
+                                                                            <div class="inputs" id="custKycDoc"
+                                                                                *ngIf="profile_exist">
                                                                                 <input id="KYCDocumentName"
                                                                                     name="KYCDocumentName" type="hidden"
                                                                                     value="Aadhaar Card Front">
@@ -185,7 +197,7 @@
                                                                                     style="text-align:center !important; display:inline-block !important ; float:none !important;">
                                                                                     <a onclick="javascript:OpenWindow('/Customer/ViewImage?Id=WG1881881&amp;KYCDocumentName=Aadhaar Card Front&amp;MineType=image/jpeg', 800, 250, true); return false;"
                                                                                         style="cursor:pointer">
-                                                                                        <img src="https://wealthgenics.com/Content/KycDocuments/WG1881881_Aadhaar Card Front.jpeg?638132031453858395?638132031453858395"
+                                                                                        <img [src]="profile_exist_String"
                                                                                             id="Aadhaar Card Front"
                                                                                             alt="KYC Document"
                                                                                             class="img-responsive"
@@ -211,13 +223,172 @@
                                                                         <label class="textalign"
                                                                             for="UploadDate">Uploaded Date</label>
 
-                                                                        20/12/2020 03:45:36 PM
+                                                                        {{profile_time}}
                                                                     </div>
 
                                                                     <div class="inputs">
                                                                         <label class="textalign"
                                                                             for="Status">Status</label>
-                                                                        Confirmed
+                                                                        {{profile_status}}
+                                                                    </div>
+                                                                    <div class="inputs">
+
+                                                                        <label class="textalign"
+                                                                            for="Remark">Remark</label>
+
+                                                                        <span style="white-space: initial;"> </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <div
+                                                            class="contact-client-single ct-client-b-mg-30 ct-client-b-mg-30-n shadow-reset">
+                                                            <div class="row">
+                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-9 col-xs-9">
+                                                                    <form action="/CustomerKYCDocument"
+                                                                        enctype="multipart/form-data" method="post">
+                                                                        <input name="__RequestVerificationToken"
+                                                                            type="hidden"
+                                                                            value="xuJ_3S-r9Xeyms8WxhZTvSz0Cs5iy5GXuDAWdSTpi8sgK6KH0ROP4JGCVcSSw4mUu_piLLPmzfiU7WYBp-kTx57Zoi3UHhTALKYwDaO7kco1">
+                                                                        <div class="row ">
+                                                                            <div class="inputs" id="custKycDoc">
+                                                                                <b><label id="custKycDoc">Pan
+                                                                                        Card</label></b>
+                                                                            </div>
+                                                                            <div class="inputs" *ngIf="!pancard_exist">
+
+                                                                                <input type="file"
+                                                                                    (change)="uploadPanCard($event)"
+                                                                                    placeholder="Upload File">
+                                                                            </div>
+                                                                            <div class="inputs" id="custKycDoc"
+                                                                                *ngIf="pancard_exist">
+                                                                                <input id="KYCDocumentName"
+                                                                                    name="KYCDocumentName" type="hidden"
+                                                                                    value="Aadhaar Card Back">
+                                                                                <input id="Memno" name="Memno"
+                                                                                    type="hidden" value="WG1881881">
+                                                                                <div class="image"
+                                                                                    style="text-align:center !important; display:inline-block !important ; float:none !important;">
+                                                                                    <a onclick="javascript:OpenWindow('/Customer/ViewImage?Id=WG1881881&amp;KYCDocumentName=Aadhaar Card Back&amp;MineType=image/jpeg', 800, 250, true); return false;"
+                                                                                        style="cursor:pointer">
+
+                                                                                        <img [src]="pancard_exist_String"
+                                                                                            id="Aadhaar Card Back"
+                                                                                            alt="KYC Document"
+                                                                                            class="img-responsive"
+                                                                                            width="200" height="150">
+                                                                                    </a>
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="inputs" id="custKycDoc">
+                                                                            </div>
+                                                                            <div class="buttons" style="margin-top:2%;"
+                                                                                id="custKycDoc">
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                                                                    <div class="inputs">
+
+                                                                        <label class="textalign"
+                                                                            for="UploadDate">Uploaded Date</label>
+
+                                                                        {{pancard_time}}
+                                                                    </div>
+
+                                                                    <div class="inputs">
+                                                                        <label class="textalign"
+                                                                            for="Status">Status</label>
+                                                                        {{pancard_status}}
+                                                                    </div>
+
+                                                                    <div class="inputs">
+
+                                                                        <label class="textalign"
+                                                                            for="Remark">Remark</label>
+
+                                                                        <span style="white-space: initial;"> </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <div
+                                                            class="contact-client-single ct-client-b-mg-30 ct-client-b-mg-30-n shadow-reset">
+                                                            <div class="row">
+                                                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+                                                                <div class="col-lg-3 col-md-3 col-sm-9 col-xs-9">
+                                                                    <form action="/CustomerKYCDocument"
+                                                                        enctype="multipart/form-data" method="post">
+                                                                        <input name="__RequestVerificationToken"
+                                                                            type="hidden"
+                                                                            value="fsYm99sRhSjlak_TEZaLjmiHYlP6zqFfyEPurDeGol1lR-ypZfgSPbUVGj-SegQwmGasJ3p1n0IYX9Q6RYQ5L6mCUsP5XNnKKthuEKJvZCs1">
+                                                                        <div class="row ">
+                                                                            <div class="inputs" id="custKycDoc">
+                                                                                <b><label id="custKycDoc">Aadhaar Card
+                                                                                        Front</label></b>
+                                                                            </div>
+                                                                            <div class="inputs"
+                                                                                *ngIf="!front_adhar_exist">
+
+                                                                                <input type="file"
+                                                                                    (change)="uploadFrontAdhar($event)"
+                                                                                    placeholder="Adhar Front">
+                                                                            </div>
+                                                                            <div class="inputs" id="custKycDoc"
+                                                                                *ngIf="front_adhar_exist">
+                                                                                <input id="KYCDocumentName"
+                                                                                    name="KYCDocumentName" type="hidden"
+                                                                                    value="Aadhaar Card Front">
+                                                                                <input id="Memno" name="Memno"
+                                                                                    type="hidden" value="WG1881881">
+                                                                                <div class="image"
+                                                                                    style="text-align:center !important; display:inline-block !important ; float:none !important;">
+                                                                                    <a onclick="javascript:OpenWindow('/Customer/ViewImage?Id=WG1881881&amp;KYCDocumentName=Aadhaar Card Front&amp;MineType=image/jpeg', 800, 250, true); return false;"
+                                                                                        style="cursor:pointer">
+                                                                                        <img [src]="front_adhar_exist_String"
+                                                                                            id="Aadhaar Card Front"
+                                                                                            alt="KYC Document"
+                                                                                            class="img-responsive"
+                                                                                            width="200" height="150">
+                                                                                    </a>
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="inputs" id="custKycDoc">
+                                                                            </div>
+                                                                            <div class="buttons" style="margin-top:2%;"
+                                                                                id="custKycDoc">
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                                                                    <div class="inputs">
+
+                                                                        <label class="textalign"
+                                                                            for="UploadDate">Uploaded Date</label>
+
+                                                                        {{front_adhar_time}}
+                                                                    </div>
+
+                                                                    <div class="inputs">
+                                                                        <label class="textalign"
+                                                                            for="Status">Status</label>
+                                                                        {{front_adhar_status}}
                                                                     </div>
                                                                     <div class="inputs">
 
@@ -246,7 +417,15 @@
                                                                                 <b><label id="custKycDoc">Aadhaar Card
                                                                                         Back</label></b>
                                                                             </div>
-                                                                            <div class="inputs" id="custKycDoc">
+                                                                            <div class="inputs"
+                                                                                *ngIf="!back_adhar_exist">
+
+                                                                                <input type="file"
+                                                                                    (change)="uploadBackAdhar($event)"
+                                                                                    placeholder="Adhar Back">
+                                                                            </div>
+                                                                            <div class="inputs" id="custKycDoc"
+                                                                                *ngIf="back_adhar_exist">
                                                                                 <input id="KYCDocumentName"
                                                                                     name="KYCDocumentName" type="hidden"
                                                                                     value="Aadhaar Card Back">
@@ -256,7 +435,7 @@
                                                                                     style="text-align:center !important; display:inline-block !important ; float:none !important;">
                                                                                     <a onclick="javascript:OpenWindow('/Customer/ViewImage?Id=WG1881881&amp;KYCDocumentName=Aadhaar Card Back&amp;MineType=image/jpeg', 800, 250, true); return false;"
                                                                                         style="cursor:pointer">
-                                                                                        <img src="https://wealthgenics.com/Content/KycDocuments/WG1881881_Aadhaar Card Back.jpeg?638132031454014647?638132031454014647"
+                                                                                        <img [src]="back_adhar_exist_String"
                                                                                             id="Aadhaar Card Back"
                                                                                             alt="KYC Document"
                                                                                             class="img-responsive"
@@ -282,13 +461,13 @@
                                                                         <label class="textalign"
                                                                             for="UploadDate">Uploaded Date</label>
 
-                                                                        20/12/2020 03:45:44 PM
+                                                                        {{back_adhar_time}}
                                                                     </div>
 
                                                                     <div class="inputs">
                                                                         <label class="textalign"
                                                                             for="Status">Status</label>
-                                                                        Confirmed
+                                                                        {{back_adhar_status}}
                                                                     </div>
                                                                     <div class="inputs">
 
@@ -317,7 +496,15 @@
                                                                                 <b><label id="custKycDoc">Bank Pass Book
                                                                                         or Cross Cheque</label></b>
                                                                             </div>
-                                                                            <div class="inputs" id="custKycDoc">
+                                                                            <div class="inputs"
+                                                                                *ngIf="!cancelled_check_exist">
+
+                                                                                <input type="file"
+                                                                                    (change)="uploadCancelledCheck($event)"
+                                                                                    placeholder="Upload File">
+                                                                            </div>
+                                                                            <div class="inputs" id="custKycDoc"
+                                                                                *ngIf="cancelled_check_exist">
                                                                                 <input id="KYCDocumentName"
                                                                                     name="KYCDocumentName" type="hidden"
                                                                                     value="Bank Pass Book or Cross Cheque">
@@ -327,7 +514,7 @@
                                                                                     style="text-align:center !important; display:inline-block !important ; float:none !important;">
                                                                                     <a onclick="javascript:OpenWindow('/Customer/ViewImage?Id=WG1881881&amp;KYCDocumentName=Bank Pass Book or Cross Cheque&amp;MineType=image/jpeg', 800, 250, true); return false;"
                                                                                         style="cursor:pointer">
-                                                                                        <img src="https://wealthgenics.com/Content/KycDocuments/WG1881881_Bank Pass Book or Cross Cheque.jpeg?638132031454170899?638132031454170899"
+                                                                                        <img [src]="cancelled_check_exist_String"
                                                                                             id="Bank Pass Book or Cross Cheque"
                                                                                             alt="KYC Document"
                                                                                             class="img-responsive"
@@ -353,13 +540,13 @@
                                                                         <label class="textalign"
                                                                             for="UploadDate">Uploaded Date</label>
 
-                                                                        20/12/2020 03:45:53 PM
+                                                                        {{cancelled_check_time}}
                                                                     </div>
 
                                                                     <div class="inputs">
                                                                         <label class="textalign"
                                                                             for="Status">Status</label>
-                                                                        Confirmed
+                                                                        {{cancelled_check_status}}
                                                                     </div>
                                                                     <div class="inputs">
 

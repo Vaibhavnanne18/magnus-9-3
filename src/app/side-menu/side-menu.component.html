@@ -5,7 +5,7 @@
     <div _ngcontent-krk-c54="" class="logoh" style="user-select: text;">
 
       <a _ngcontent-krk-c54="" href="/" class="logo" style="user-select: text;"><img _ngcontent-krk-c54="" title=""
-          alt="MoneySaga" src="../../assets/img/logonew.png" class="img-fluid w-100"
+          alt="MoneySaga" [src]="logourl" class="img-fluid w-100"
           style="max-width: 100%;min-height: 46px;max-height: 67px;background: black; margin-top: -13px;width: 211px;"></a>
 
     </div>
@@ -13,13 +13,13 @@
     <div _ngcontent-krk-c54="" class="sidebar-header d-flex justify-content-center align-items-center mx-auto"
       style="user-select: text;"><a _ngcontent-krk-c54="" href="dashboard"
         style="user-select: text;border-radius: 52px;"><img _ngcontent-krk-c54=""
-          src="http://cdn.onlinewebfonts.com/svg/img_452489.png" alt=""
+          [src]="profileurl" alt=""
           style="width: 61px;height: 70px;background: white;user-select: text;"></a>
       <h3 _ngcontent-krk-c54="" style="user-select: text;">{{email}}</h3>
 
     </div>
 
-    <li>
+    <!-- <li>
       <a _ngcontent-krk-c54="" href="SponsorRegister" title="Sign Up" style="user-select: text;">
         <i _ngcontent-krk-c54="" id="faIconStyle" class="fas fa-user" style="user-select: text;">
         </i>
@@ -27,7 +27,7 @@
           _ngcontent-krk-c54="" class="indicator-right-menu mini-dn" style="user-select: text;">
         </span>
       </a>
-    </li>
+    </li> -->
     <li>
       <a _ngcontent-krk-c54="" href="dashboard" title="My Dashboard" style="user-select: text;">
         <!-- <i _ngcontent-krk-c54="" id="faIconStyle" class="fa big-icon fa-sitemap" style="user-select: text;"></i> -->
@@ -44,7 +44,7 @@
     <li class="dropdown">
       <!-- <i class="fa-solid fa-house-chimney-window"></i> -->
 
-      <a _ngcontent-krk-c54="" href="dashboard" title="My Network" style="user-select: text;">
+      <a _ngcontent-krk-c54="" href="home" title="My Network" style="user-select: text;">
         <i _ngcontent-krk-c54="" id="faIconStyle" class="fa-solid fa-house-chimney-window"
           style="user-select: text;"></i>
         <span _ngcontent-krk-c54="" class="mini-dn" style="user-select: text;">Home</span><span _ngcontent-krk-c54=""
