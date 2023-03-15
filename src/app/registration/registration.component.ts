@@ -14,7 +14,6 @@ interface Tree{
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-
   email : string = '';
   password : string = '';
   name : string = '';
@@ -80,10 +79,7 @@ export class RegistrationComponent implements OnInit {
     this.name = '';
     this.invitationCode = '';
     this.mobileNo = '';
-   
-    this.setLocationInTree(this.id);
-   
-    
+    this.setLocationInTree(this.id); 
   }
 
   setLocationInTree(id:string) {

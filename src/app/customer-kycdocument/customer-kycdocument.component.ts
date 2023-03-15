@@ -42,7 +42,7 @@ export class CustomerKYCDocumentComponent implements OnInit {
   url_main: any = {};
   constructor(private storage: AngularFireStorage, private firestore: AngularFirestore, public auths: AngularFireAuth, private auth: AuthService) { }
   ngOnInit(): void {
-    this.uid = sessionStorage.getItem('firebaseUserId');
+    // this.uid = sessionStorage.getItem('firebaseUserId');
     this.auths.user.subscribe(user=>{
       this.firestore.collection<any>('users').doc(user?.uid).collection('kyc').doc('details').valueChanges().subscribe((doc: any) => {
      
@@ -86,7 +86,7 @@ export class CustomerKYCDocumentComponent implements OnInit {
           }
           this.email = doc.data().email;
 
-          // console.log(doc.data());
+            // console.log(doc.data());
   
         }
         else {
@@ -105,7 +105,6 @@ export class CustomerKYCDocumentComponent implements OnInit {
   uploadFrontAdhar(event:any) {
     this.uploadFile(event, "front_adhar", "front_adhar_time")
   }
-
   uploadBackAdhar(event: any) {
     this.uploadFile(event, "back_adhar", "back_adhar_time")
   }
@@ -137,8 +136,8 @@ export class CustomerKYCDocumentComponent implements OnInit {
           // this.firestore.collection('users').doc(this.uid).collection('kyc').doc('details').set({ "value":"url" }, { merge: true })
         });
       })
-
     ).subscribe();
 
   }
 }
+23

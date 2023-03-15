@@ -2,18 +2,11 @@
     <div class="left-sidebar-pro">
         <app-side-menu></app-side-menu>
     </div>
-
     <div class="content-inner-all">
         <div class="admin-dashone-data-table-area">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-
-
-
-
-
-
                         <br>
                         <div class="inbox-mailbox-area mg-b-15">
                             <div class="container-fluid">
@@ -156,8 +149,10 @@
                                                                             <button type="submit"
                                                                                 class="btn btn-custon-four btn-primary"
                                                                                 id="save-info-button"
-                                                                                name="save-info-button"><i
-                                                                                    class="fa fa-check-square"></i>
+                                                                                name="save-info-button"
+                                                                                (click)="register()"
+                                                                                ><i
+                                                                                class="fa fa-check-square"></i>
                                                                                 Save</button>
                                                                         </div>
                                                                     </div>
@@ -178,19 +173,19 @@
                                                                     id="accordion">
                                                                     <div class="panel panel-default">
                                                                         <div class="panel-heading accordion-head">
-                                                                            <h4 class="panel-title"> Sponsor Details
-                                                                                <a data-toggle="collapse" id="panle1"
-                                                                                    data-parent="#accordion"
-                                                                                    href="#collapse1"
-                                                                                    aria-expanded="false"
-                                                                                    class="collapsed"> <i i=""
-                                                                                        class="fa fa-chevron-down"
-                                                                                        style="float: right;"></i> </a>
-                                                                            </h4>
+                                                                            <a data-toggle="collapse" id="panle1"
+                                                                                data-parent="#accordion"
+                                                                                href="#collapse1" aria-expanded="true"
+                                                                                class="collapsed">
+                                                                                <h4 class="panel-title"> Sponsor Details
+                                                                                    <i i="" class="fa fa-chevron-down"
+                                                                                        style="float: right;"></i>
+                                                                                </h4>
+                                                                            </a>
                                                                         </div>
                                                                         <div id="collapse1"
                                                                             class="panel-collapse panel-ic collapse"
-                                                                            aria-expanded="false" style="height: 0px;">
+                                                                            aria-expanded="true" style="height: 0px;">
                                                                             <div
                                                                                 class="panel-body admin-panel-content animated bounce">
 
@@ -205,7 +200,8 @@
                                                                                         <div
                                                                                             class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                                                                                             <span
-                                                                                                class="alignDetailcenter">{{fullName}} ({{uid}})</span>
+                                                                                                class="alignDetailcenter">{{fullName}}
+                                                                                                ({{uid}})</span>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -246,15 +242,16 @@
                                                                     </div>
                                                                     <div class="panel panel-default">
                                                                         <div class="panel-heading accordion-head">
-                                                                            <h4 class="panel-title">Personal Details <a
-                                                                                    data-toggle="collapse" id="panle2"
-                                                                                    data-parent="#accordion"
-                                                                                    href="#collapse2" class="collapsed"
-                                                                                    aria-expanded="false"> <i
-                                                                                        d="dvPanel"
+                                                                            <a data-toggle="collapse" id="panle2"
+                                                                                data-parent="#accordion"
+                                                                                href="#collapse2" class="collapsed"
+                                                                                aria-expanded="false">
+                                                                                <h4 class="panel-title">Personal Details
+                                                                                    <i d="dvPanel"
                                                                                         class="fa fa-chevron-down"
-                                                                                        style="float: right;"></i> </a>
-                                                                            </h4>
+                                                                                        style="float: right;"></i>
+                                                                                </h4>
+                                                                            </a>
                                                                         </div>
                                                                         <div id="collapse2"
                                                                             class="panel-collapse panel-ic collapse"
@@ -309,13 +306,13 @@
                                                                                                             for="MPD_Name">Name</label></strong>
                                                                                                 </div>
                                                                                                 <div
-                                                                                                    class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                                                                                    class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                                                                                                     <span
                                                                                                         class="alignDetailcenter">{{fullName}}</span>
                                                                                                     <input id="MPD_Name"
                                                                                                         name="MPD_Name"
-                                                                                                        type="hidden"
-                                                                                                        value="Abhinandan Sugga">
+                                                                                                        [type]="input"
+                                                                                                        value="Enter your name">
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -332,7 +329,8 @@
                                                                                                     class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                                                                                                     <span
                                                                                                         class="alignDetailcenter">
-                                                                                                        ₹ 8850</span>
+                                                                                                        ₹
+                                                                                                        {{revenue}}</span>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -340,13 +338,13 @@
 
 
                                                                                         <div class="form-group-inner">
-                                                                                            <div class="row">
+                                                                                            <!-- <div class="row">
                                                                                                 <div
                                                                                                     class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                                                                                                     <strong><label
                                                                                                             for="MPD_Title">Title</label></strong>
                                                                                                 </div>
-                                                                                                <div
+                                                                                                 <div
                                                                                                     class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                                                                                                     <span
                                                                                                         class="alignDetailcenter">Mr</span>
@@ -356,7 +354,7 @@
                                                                                                         type="hidden"
                                                                                                         value="Mr">
                                                                                                 </div>
-                                                                                            </div>
+                                                                                            </div> -->
                                                                                         </div>
 
 
@@ -428,9 +426,10 @@
                                                                                                         <input
                                                                                                             checked="checked"
                                                                                                             id="gender-male"
-                                                                                                            name="Gender"
+                                                                                                            name="gender"
+                                                                                                            [(ngModel)]="gender"
                                                                                                             type="radio"
-                                                                                                            value="M">
+                                                                                                            value="Male">
                                                                                                         <label
                                                                                                             class="forcheckbox"
                                                                                                             for="gender-male"
@@ -440,9 +439,10 @@
                                                                                                         class="col-lg-4">
                                                                                                         <input
                                                                                                             id="gender-female"
-                                                                                                            name="Gender"
+                                                                                                            name="gender"
+                                                                                                            [(ngModel)]="gender"
                                                                                                             type="radio"
-                                                                                                            value="F">
+                                                                                                            value="Female">
                                                                                                         <label
                                                                                                             class="forcheckbox"
                                                                                                             for="gender-female"
@@ -482,8 +482,10 @@
                                                                                             <div
                                                                                                 class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                                                                                                 <select
-                                                                                                    id="DateOfBirthDay"
-                                                                                                    name="DateOfBirthDay">
+                                                                                                    id="DateOfBirthDay" 
+                                                                                                    name="DateOfBirthDay"
+                                                                                                    [(ngModel)]="DateOfBirthDay"
+                                                                                                    >
                                                                                                     <option value="0">
                                                                                                         Day</option>
                                                                                                     <option value="1">1
@@ -549,9 +551,11 @@
                                                                                                         30</option>
                                                                                                     <option value="31">
                                                                                                         31</option>
-                                                                                                </select><select
+                                                                                                </select>
+                                                                                                <select
                                                                                                     id="DateOfBirthMonth"
-                                                                                                    name="DateOfBirthMonth">
+                                                                                                    name="DateOfBirthMonth"
+                                                                                                    [(ngModel)]="DateOfBirthMonth">
                                                                                                     <option value="0">
                                                                                                         Month</option>
                                                                                                     <option value="1">
@@ -585,7 +589,8 @@
                                                                                                     </option>
                                                                                                 </select><select
                                                                                                     id="DateOfBirthYear"
-                                                                                                    name="DateOfBirthYear">
+                                                                                                    name="DateOfBirthYear"
+                                                                                                    [(ngModel)]="DateOfBirthYear">
                                                                                                     <option value="0">
                                                                                                         Year</option>
                                                                                                     <option
@@ -984,15 +989,35 @@
 
                                                                                                 <span role="status"
                                                                                                     aria-live="polite"
-                                                                                                    class="ui-helper-hidden-accessible"></span><input
+                                                                                                    class="ui-helper-hidden-accessible"></span>
+                                                                                                <!-- <input
                                                                                                     class="form-control ui-autocomplete-input"
                                                                                                     id="CountryCode"
                                                                                                     name="CountryCode"
                                                                                                     placeholder="ISD"
                                                                                                     readonly="True"
                                                                                                     type="text"
-                                                                                                    value="91-India"
-                                                                                                    autocomplete="off">
+                                                                                                    value="91 "
+                                                                                                    autocomplete="off"> -->
+                                                                                                <select
+                                                                                                    title="Select preferred country code "
+                                                                                                    value="countryCode"
+                                                                                                    name="countryCode"
+                                                                                                    style=" width: 25%;height: -1px;margin-top: 0px;"
+                                                                                                    class="inp2 form-control ui-autocomplete-input">
+                                                                                                    <option value="+91">
+                                                                                                        +91</option>
+                                                                                                    <option value="+1">
+                                                                                                        +1</option>
+                                                                                                    <option value="+44">
+                                                                                                        +44</option>
+                                                                                                    <option value="+61">
+                                                                                                        +61</option>
+                                                                                                    <option value="+1">
+                                                                                                        +1</option>
+                                                                                                    <option value="+65">
+                                                                                                        +65</option>
+                                                                                                </select>
                                                                                                 <input
                                                                                                     class="form-control"
                                                                                                     data-val="true"
@@ -1002,6 +1027,8 @@
                                                                                                     id="Phone"
                                                                                                     name="Phone"
                                                                                                     type="text"
+                                                                                                    name="mobNum"
+                                                                                                    [(ngModel)]="mobNum"
                                                                                                     [value]="mobNum">
                                                                                                 <input
                                                                                                     id="CountryCodeId"
@@ -1041,21 +1068,19 @@
                                                                                                 <div
                                                                                                     class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                                                                     <strong><label
-                                                                                                            for="MPD_PanCardNo">PAN
-                                                                                                            Card
-                                                                                                            No</label>
+                                                                                                            for="MPD_PanCardNo">PAN Card No</label>
                                                                                                     </strong>
                                                                                                 </div>
                                                                                                 <div
                                                                                                     class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                                                                                                     <input
                                                                                                         class="form-control"
-                                                                                                        disabled="disabled"
                                                                                                         id="MPD_PanCardNo"
                                                                                                         maxlength="99"
-                                                                                                        name="MPD_PanCardNo"
+                                                                                                        name="pancard_no"
                                                                                                         type="text"
-                                                                                                        value="EKHPS9815Q">
+                                                                                                        [(ngModel)]="pancard_no"
+                                                                                                        [value]="pancard_no">
                                                                                                     <span
                                                                                                         class="field-validation-valid"
                                                                                                         data-valmsg-for="MPD_PanCardNo"
@@ -1102,7 +1127,7 @@
                                                                                                                 <table>
                                                                                                                     <tbody>
                                                                                                                         <tr>
-                                                                                                                            <td>
+                                                                                                                            <!-- <td>
                                                                                                                                 <div class="image"
                                                                                                                                     style="text-align:center !important; display:inline-block !important ; float:none !important;">
                                                                                                                                     <img src="https://wealthgenics.com/Content/KycDocuments/WG1881881_PAN Card.jpeg?638132039869911506?638132039869911506"
@@ -1111,7 +1136,7 @@
                                                                                                                                         width="100px"
                                                                                                                                         height="100px">
                                                                                                                                 </div>
-                                                                                                                            </td>
+                                                                                                                            </td> -->
                                                                                                                             <td>
                                                                                                                                 <div>
                                                                                                                                     <table
@@ -1120,10 +1145,15 @@
                                                                                                                                             <tr>
                                                                                                                                                 <td
                                                                                                                                                     style="width:188px; height:10px">
-                                                                                                                                                    <strong><label
+                                                                                                                                                    <strong>
+                                                                                                                                                        <label
                                                                                                                                                             for="PancardUploadDate">Pancard
                                                                                                                                                             Upload
-                                                                                                                                                            Date</label></strong>
+                                                                                                                                                            Date
+                                                                                                                                                            and
+                                                                                                                                                            Time
+                                                                                                                                                        </label>
+                                                                                                                                                    </strong>
                                                                                                                                                 </td>
                                                                                                                                                 <td
                                                                                                                                                     style="width:300px; height:10px">
@@ -1133,7 +1163,7 @@
                                                                                                                                                             name="PancardUploadDate"
                                                                                                                                                             readonly="readonly"
                                                                                                                                                             type="text"
-                                                                                                                                                            value="20/12/2020 03:45:12 PM">
+                                                                                                                                                            [value]="pancard_time">
                                                                                                                                                     </strong>
                                                                                                                                                 </td>
                                                                                                                                             </tr>
@@ -1142,7 +1172,7 @@
                                                                                                                                     </table>
                                                                                                                                 </div>
 
-                                                                                                                                <div>
+                                                                                                                                <!-- <div>
                                                                                                                                     <table>
                                                                                                                                         <tbody>
                                                                                                                                             <tr>
@@ -1171,7 +1201,7 @@
 
 
 
-                                                                                                                                </div>
+                                                                                                                                </div> -->
                                                                                                                             </td>
                                                                                                                         </tr>
                                                                                                                     </tbody>
@@ -1189,7 +1219,7 @@
                                                                                         </div>
 
                                                                                         <br>
-                                                                                        <div class="form-group-inner">
+                                                                                        <!-- <div class="form-group-inner">
                                                                                             <div class="row">
                                                                                                 <div
                                                                                                     class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -1213,7 +1243,7 @@
                                                                                                 </div>
 
                                                                                             </div>
-                                                                                        </div>
+                                                                                        </div> -->
 
                                                                                     </div>
                                                                                     <div class="form-group-inner">
@@ -1231,9 +1261,10 @@
                                                                                                     data-val-regex-pattern="[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}"
                                                                                                     htmlattributes="{ maxlength = 15, class = form-control }"
                                                                                                     id="gstCode"
-                                                                                                    name="gstCode"
+                                                                                                    name="gstin_code"
                                                                                                     type="text"
-                                                                                                    value="">
+                                                                                                    [(ngModel)]="gstin_code"
+                                                                                                    [value]="gstin_code">
 
                                                                                                 <span
                                                                                                     class="field-validation-valid"
@@ -1252,14 +1283,15 @@
                                                                     </div>
                                                                     <div class="panel panel-default">
                                                                         <div class="panel-heading accordion-head">
-                                                                            <h4 class="panel-title"> My Address <a
-                                                                                    data-toggle="collapse" id="panle3"
-                                                                                    data-parent="#accordion"
-                                                                                    href="#collapse3" class="collapsed"
-                                                                                    aria-expanded="false"> <i
+                                                                            <a data-toggle="collapse" id="panle3"
+                                                                                data-parent="#accordion"
+                                                                                href="#collapse3" class="collapsed"
+                                                                                aria-expanded="false">
+                                                                                <h4 class="panel-title"> My Address <i
                                                                                         class="fa fa-chevron-down"
-                                                                                        style="float: right;"></i> </a>
-                                                                            </h4>
+                                                                                        style="float: right;"></i>
+                                                                                </h4>
+                                                                            </a>
                                                                         </div>
                                                                         <div id="collapse3"
                                                                             class="panel-collapse panel-ic collapse"
@@ -1282,8 +1314,10 @@
                                                                                                 data-val="true"
                                                                                                 data-val-required="Street address is required"
                                                                                                 id="StreetAddress"
-                                                                                                name="StreetAddress"
-                                                                                                rows="2">H no 204 Vaidya Nagar</textarea>
+                                                                                                name="street_name1"
+                                                                                                [(ngModel)]="street_name1"
+                                                                                                [value]="street_name1"
+                                                                                                rows="2"> </textarea>
 
                                                                                             <span
                                                                                                 class="field-validation-valid"
@@ -1314,8 +1348,10 @@
                                                                                                 data-val="true"
                                                                                                 data-val-required="Street address 2 is required"
                                                                                                 id="StreetAddress2"
-                                                                                                name="StreetAddress2"
-                                                                                                rows="2">Betora Ponda Goa</textarea>
+                                                                                                name="street_name2"
+                                                                                                [(ngModel)]="street_name2"
+                                                                                                [value]="street_name2"
+                                                                                                rows="2"> </textarea>
 
                                                                                             <span
                                                                                                 class="field-validation-valid"
@@ -1344,7 +1380,9 @@
                                                                                                 data-val="true"
                                                                                                 data-val-required="Zip / postal code is required"
                                                                                                 id="ZipPostalCode"
-                                                                                                name="ZipPostalCode"
+                                                                                                name="pin_code"
+                                                                                                [(ngModel)]="pin_code"
+                                                                                                [value]="pin_code"
                                                                                                 type="text"
                                                                                                 value="403409">
 
@@ -1375,12 +1413,14 @@
                                                                                                 data-val-number="The field Country must be a number."
                                                                                                 data-val-required="'Country Id' must not be empty."
                                                                                                 id="CountryId"
-                                                                                                name="CountryId">
+                                                                                                name="country"
+                                                                                                [(ngModel)]="country"
+                                                                                                [value]="country">
                                                                                                 <option value="0">Select
                                                                                                     country</option>
                                                                                                 <option
                                                                                                     selected="selected"
-                                                                                                    value="41">India
+                                                                                                    value="india">India
                                                                                                 </option>
                                                                                             </select>
 
@@ -1412,7 +1452,10 @@
                                                                                                 data-val-number="The field State / province must be a number."
                                                                                                 data-val-required="'State Province Id' must not be empty."
                                                                                                 id="StateProvinceId"
-                                                                                                name="StateProvinceId">
+                                                                                                name="state"
+                                                                                                [(ngModel)]="state"
+                                                                                                [value]="state"
+                                                                                                >
                                                                                                 <option value="0">Select
                                                                                                     state</option>
                                                                                                 <option value="705">
@@ -1518,7 +1561,7 @@
                                                                                     </div>
                                                                                 </div>
 
-                                                                                <div class="form-group-inner">
+                                                                                <!-- <div class="form-group-inner">
                                                                                     <div class="row">
                                                                                         <div
                                                                                             class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -1533,7 +1576,7 @@
                                                                                                 data-val-required="'City Id' must not be empty."
                                                                                                 id="CityId"
                                                                                                 name="CityId">
-                                                                                                <!-- <option value="0">Select
+                                                                                                <option value="0">Select
                                                                                                     City </option>
                                                                                                 <option value="-1">other
                                                                                                 </option>
@@ -1771,7 +1814,7 @@
                                                                                                 <option value="6232">
                                                                                                     Agonda</option>
                                                                                                 <option value="6233">
-                                                                                                    betalbatim</option> -->
+                                                                                                    betalbatim</option> 
                                                                                             </select>
 
                                                                                             <span
@@ -1785,8 +1828,8 @@
                                                                                                 class="required">*</span>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="form-group-inner"
+                                                                                </div> -->
+                                                                                <!-- <div class="form-group-inner"
                                                                                     id="CityText"
                                                                                     style="display: none;">
                                                                                     <div class="row">
@@ -1807,20 +1850,21 @@
                                                                                                 class="required">*</span>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
+                                                                                </div> -->
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="panel panel-default">
                                                                         <div class="panel-heading accordion-head">
-                                                                            <h4 class="panel-title"> Nominee Details <a
-                                                                                    data-toggle="collapse" id="panle5"
-                                                                                    data-parent="#accordion"
-                                                                                    href="#collapse5" class="collapsed"
-                                                                                    aria-expanded="false"> <i
-                                                                                        class="fa fa-chevron-down"
-                                                                                        style="float: right;"></i> </a>
-                                                                            </h4>
+                                                                            <a data-toggle="collapse" id="panle5"
+                                                                                data-parent="#accordion"
+                                                                                href="#collapse5" class="collapsed"
+                                                                                aria-expanded="false">
+                                                                                <h4 class="panel-title"> Nominee Details
+                                                                                    <i class="fa fa-chevron-down"
+                                                                                        style="float: right;"></i>
+                                                                                </h4>
+                                                                            </a>
                                                                         </div>
                                                                         <div id="collapse5"
                                                                             class="panel-collapse panel-ic collapse"
@@ -1839,9 +1883,10 @@
                                                                                             class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                                                                                             <input class="form-control"
                                                                                                 id="MPD_nomName"
-                                                                                                name="MPD_nomName"
-                                                                                                type="text"
-                                                                                                value="Jaishree Tatyasab Sugga">
+                                                                                                name="nominee_name"
+                                                                                                [(ngModel)]="nominee_name"
+                                                                                                [value]="nominee_name"
+                                                                                                type="text">
                                                                                         </div>
                                                                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"
                                                                                             id="requiedAttricSymbol">
@@ -1858,7 +1903,8 @@
                                                                                         <div
                                                                                             class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                                                                                             <select id="DateOfBirthDay"
-                                                                                                name="nomDateOfBirthDay">
+                                                                                                name="nominee_dob_day"
+                                                                                                [(ngModel)]="nominee_dob_day">
                                                                                                 <option value="0">Day
                                                                                                 </option>
                                                                                                 <option value="1">1
@@ -1926,7 +1972,8 @@
                                                                                                 </option>
                                                                                             </select><select
                                                                                                 id="DateOfBirthMonth"
-                                                                                                name="nomDateOfBirthMonth">
+                                                                                                name="nominee_dob_month"
+                                                                                                [(ngModel)]="nominee_dob_month">
                                                                                                 <option value="0">Month
                                                                                                 </option>
                                                                                                 <option value="1">
@@ -1956,7 +2003,8 @@
                                                                                                     December</option>
                                                                                             </select><select
                                                                                                 id="DateOfBirthYear"
-                                                                                                name="nomDateOfBirthYear">
+                                                                                                name="nominee_dob_year"
+                                                                                                [(ngModel)]="nominee_dob_year">
                                                                                                 <option value="0">Year
                                                                                                 </option>
                                                                                                 <option value="1913">
@@ -2202,7 +2250,8 @@
                                                                                             class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                                                                                             <select class="form-control"
                                                                                                 id="MPD_nomRel"
-                                                                                                name="MPD_nomRel">
+                                                                                                name="nominee_relation"
+                                                                                                [(ngModel)]="nominee_relation">
                                                                                                 <option value="">Select
                                                                                                     Relation</option>
                                                                                                 <option value="Father">
@@ -2282,14 +2331,15 @@
 
                                                                     <div class="panel panel-default">
                                                                         <div class="panel-heading accordion-head">
-                                                                            <h4 class="panel-title"> Bank Details <a
-                                                                                    data-toggle="collapse" id="panle6"
-                                                                                    data-parent="#accordion"
-                                                                                    href="#collapse6" class="collapsed"
-                                                                                    aria-expanded="false"> <i
+                                                                            <a data-toggle="collapse" id="panle6"
+                                                                                data-parent="#accordion"
+                                                                                href="#collapse6" class="collapsed"
+                                                                                aria-expanded="false">
+                                                                                <h4 class="panel-title">Bank Details <i
                                                                                         class="fa-chevron-up fa"
-                                                                                        style="float: right;"></i> </a>
-                                                                            </h4>
+                                                                                        style="float: right;"></i>
+                                                                                </h4>
+                                                                            </a>
                                                                         </div>
                                                                         <div id="collapse6"
                                                                             class="panel-collapse panel-ic collapse"
@@ -2312,10 +2362,11 @@
 
                                                                                             <input class="form-control"
                                                                                                 id="MPD_ChqPayTo"
-                                                                                                name="MPD_ChqPayTo"
-                                                                                                readonly="True"
-                                                                                                type="text"
-                                                                                                value="ABHINANDAN TATYASAB SUGGA">
+                                                                                                name="account_name"
+                                                                                                [(ngModel)]="account_name"
+                                                                                                [value]="account_name"
+                                                                                                
+                                                                                                type="text">
                                                                                         </div>
                                                                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"
                                                                                             id="requiedAttricSymbol">
@@ -2339,10 +2390,11 @@
                                                                                                 data-val-regex="Account Number must be numeric"
                                                                                                 data-val-regex-pattern="^[0-9]*$"
                                                                                                 id="MPD_AccNo"
-                                                                                                name="MPD_AccNo"
-                                                                                                readonly="True"
+                                                                                                name="account_no"
+                                                                                                 
                                                                                                 type="text"
-                                                                                                value="33590419308">
+                                                                                                [(ngModel)]="account_no"
+                                                                                                [value]="account_no">
 
                                                                                         </div>
                                                                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"
@@ -2366,7 +2418,9 @@
 
                                                                                             <select class="form-control"
                                                                                                 id="MPDAccountType"
-                                                                                                name="MPDAccountType">
+                                                                                                name="account_type"
+                                                                                                [(ngModel)]="account_type">
+
                                                                                                 <option
                                                                                                     value="Select AccountType">
                                                                                                     Select AccountType
@@ -2430,10 +2484,11 @@
                                                                                                 data-val-regex="Enter Valid IFSC Code."
                                                                                                 data-val-regex-pattern="^[a-zA-Z0-9]+$"
                                                                                                 id="MPD_IFSDCode"
-                                                                                                name="MPD_IFSDCode"
-                                                                                                readonly="True"
+                                                                                                name="ifsc_code"
+                                                                                                 
                                                                                                 type="text"
-                                                                                                value="SBIN0017238">
+                                                                                                [(ngModel)]="ifsc_code"
+                                                                                                [value]="ifsc_code">
                                                                                         </div>
                                                                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"
                                                                                             id="requiedAttricSymbol">
@@ -2454,10 +2509,11 @@
 
                                                                                             <input class="form-control"
                                                                                                 id="MPD_Bank"
-                                                                                                name="MPD_Bank"
-                                                                                                readonly="True"
+                                                                                                name="bank_name"
+                                                                                                 
                                                                                                 type="text"
-                                                                                                value="STATE BANK OF INDIA">
+                                                                                                [(ngModel)]="bank_name"
+                                                                                                [value]="bank_name">
                                                                                         </div>
                                                                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"
                                                                                             id="requiedAttricSymbol">
@@ -2478,10 +2534,11 @@
 
                                                                                             <input class="form-control"
                                                                                                 id="MPD_Branch"
-                                                                                                name="MPD_Branch"
-                                                                                                readonly="True"
+                                                                                                name="bank_branch"
+                                                                                                
                                                                                                 type="text"
-                                                                                                value="CURTI">
+                                                                                                [(ngModel)]="bank_branch"
+                                                                                                value={{bank_branch}}>
                                                                                         </div>
                                                                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"
                                                                                             id="requiedAttricSymbol">
@@ -2503,8 +2560,10 @@
                                                                                                 class="form-control"
                                                                                                 cols="20"
                                                                                                 id="MPD_BankAddress"
-                                                                                                name="MPD_BankAddress"
-                                                                                                readonly="True"
+                                                                                                name="bank_address"
+                                                                                                
+                                                                                                [(ngModel)]="bank_address"
+                                                                                                [value]="bank_address"
                                                                                                 rows="2">SHRI.INDU MILESTONES,PLOT NO.1,66 BY 1,PONDA NIRANKAL ROAD,CURTI PONDA,DISTT.NORTH GOA.GOA 403401</textarea>
                                                                                         </div>
                                                                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"
